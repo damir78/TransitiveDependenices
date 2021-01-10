@@ -43,7 +43,7 @@ public class SimpleBeanTest {
     /// E   F H
     /// F   H
     @Test
-    public void testFullDep() {
+    public void testFullDepOutput() {
 
         SimpleBean h = new SimpleBean("h");
         SimpleBean g = new SimpleBean("g");
@@ -55,12 +55,29 @@ public class SimpleBeanTest {
         SimpleBean d = new SimpleBean("d", a, f);
 
         System.out.println(a);
+        Assert.assertEquals("a [b, c, e, f, g, h]", a.toString());
+
         System.out.println(b);
+        Assert.assertEquals("b [c, e, f, g, h]", b.toString());
+
         System.out.println(c);
+        Assert.assertEquals("c [g]", c.toString());
+
         System.out.println(d);
+        Assert.assertEquals("d [a, b, c, e, f, g, h]", d.toString());
+
         System.out.println(e);
+        Assert.assertEquals("e [f, h]", e.toString());
+
         System.out.println(f);
+        Assert.assertEquals("f [h]", f.toString());
+
         System.out.println(g);
+        Assert.assertEquals("g []", g.toString());
+
         System.out.println(h);
+        Assert.assertEquals("h []", h.toString());
     }
+
+
 }
